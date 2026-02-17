@@ -87,10 +87,10 @@ class AboutDialog(Toplevel):
 
         header = Label(
             frame_background,
-            text="IDLE",
+            text="JereIDE",
             fg=self.fg,
             bg=self.bg,
-            font=("courier", 24, "bold"),
+            font=("Monospace", 24, "bold"),
         )
         header.grid(row=0, column=0, sticky=E, padx=10, pady=10)
 
@@ -112,7 +112,7 @@ class AboutDialog(Toplevel):
         byline.grid(row=2, column=0, sticky=W, columnspan=3, padx=10, pady=5)
         email = Label(
             frame_background,
-            text="email:  idle-dev@python.org",
+            text="email:  jeremytheking2013@gmail.com",
             justify=LEFT,
             fg=self.fg,
             bg=self.bg,
@@ -174,7 +174,10 @@ class AboutDialog(Toplevel):
         ).grid(row=11, column=0, sticky=EW, columnspan=3, padx=5, pady=5)
 
         idlever = Label(
-            frame_background, text="IDLE version:   " + version, fg=self.fg, bg=self.bg
+            frame_background,
+            text="JereIDE version:   " + version,
+            fg=self.fg,
+            bg=self.bg,
         )
         idlever.grid(row=12, column=0, sticky=W, padx=10, pady=0)
         idle_buttons = Frame(frame_background, bg=self.bg)
