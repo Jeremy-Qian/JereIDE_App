@@ -120,56 +120,6 @@ class AboutDialog(Toplevel):
             bg=self.bg,
         )
         email.grid(row=6, column=0, columnspan=2, sticky=W, padx=10, pady=0)
-        docs_url = (
-            "https://docs.python.org/%d.%d/library/idle.html" % sys.version_info[:2]
-        )
-        docs = Label(
-            frame_background, text=docs_url, justify=LEFT, fg=self.fg, bg=self.bg
-        )
-        docs.grid(row=7, column=0, columnspan=2, sticky=W, padx=10, pady=0)
-        docs.bind("<Button-1>", lambda event: webbrowser.open(docs["text"]))
-
-        Frame(
-            frame_background, borderwidth=1, relief=SUNKEN, height=2, bg=self.bg
-        ).grid(row=8, column=0, sticky=EW, columnspan=3, padx=5, pady=5)
-
-        pyver = Label(
-            frame_background, text="Python version:  " + version, fg=self.fg, bg=self.bg
-        )
-        pyver.grid(row=9, column=0, sticky=W, padx=10, pady=0)
-        tkver = Label(
-            frame_background,
-            text=f"Tk version:  {tk_patchlevel}",
-            fg=self.fg,
-            bg=self.bg,
-        )
-        tkver.grid(row=9, column=1, sticky=W, padx=2, pady=0)
-        py_buttons = Frame(frame_background, bg=self.bg)
-        py_buttons.grid(row=10, column=0, columnspan=2, sticky=NSEW)
-        self.py_license = Button(
-            py_buttons,
-            text="License",
-            width=8,
-            highlightbackground=self.bg,
-            command=self.show_py_license,
-        )
-        self.py_license.pack(side=LEFT, padx=10, pady=10)
-        self.py_copyright = Button(
-            py_buttons,
-            text="Copyright",
-            width=8,
-            highlightbackground=self.bg,
-            command=self.show_py_copyright,
-        )
-        self.py_copyright.pack(side=LEFT, padx=10, pady=10)
-        self.py_credits = Button(
-            py_buttons,
-            text="Credits",
-            width=8,
-            highlightbackground=self.bg,
-            command=self.show_py_credits,
-        )
-        self.py_credits.pack(side=LEFT, padx=10, pady=10)
 
         Frame(
             frame_background, borderwidth=1, relief=SUNKEN, height=2, bg=self.bg
