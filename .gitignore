@@ -2,3 +2,4 @@
 __pycache__/
 idlelib/__pycache__/*
 /idlelib/__pycache__/*
+*.pyc
