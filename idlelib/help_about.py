@@ -24,6 +24,7 @@ from tkinter import (
 )
 
 version = python_version()
+jereide_version = "v0.0.1"
 
 
 def build_bits():
@@ -176,7 +177,7 @@ class AboutDialog(Toplevel):
 
         idlever = Label(
             frame_background,
-            text="JereIDE version:   " + version,
+            text="JereIDE version:   " + jereide_version,
             fg=self.fg,
             bg=self.bg,
         )
