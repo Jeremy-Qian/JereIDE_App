@@ -90,7 +90,7 @@ class AboutDialog(Toplevel):
             text="JereIDE",
             fg=self.fg,
             bg=self.bg,
-            font=("Monospace", 24, "bold"),
+            font=("Courier", 24, "bold"),
         )
         header.grid(row=0, column=0, sticky=E, padx=10, pady=10)
 
