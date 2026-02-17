@@ -104,7 +104,8 @@ class AboutDialog(Toplevel):
         logo.grid(row=0, column=0, sticky=W, rowspan=2, padx=10, pady=10)
 
         byline_text = (
-            "Python's Integrated Development\nand Learning Environment" + 5 * "\n"
+            "Jeremy's Integrated Development\nand Environment, powered by JereChat"
+            + 5 * "\n"
         )
         byline = Label(
             frame_background, text=byline_text, justify=LEFT, fg=self.fg, bg=self.bg
@@ -112,7 +113,7 @@ class AboutDialog(Toplevel):
         byline.grid(row=2, column=0, sticky=W, columnspan=3, padx=10, pady=5)
         email = Label(
             frame_background,
-            text="email:  jeremytheking2013@gmail.com",
+            text="Email:  jeremytheking2013@gmail.com",
             justify=LEFT,
             fg=self.fg,
             bg=self.bg,
