@@ -836,7 +836,7 @@ class ModifiedInterpreter(InteractiveInterpreter):
             "communicate with its Python execution server.  This might be "
             "because no networking is installed on this computer.  "
             "Run IDLE with the -n command line switch to start without a "
-            "subprocess and refer to Help/IDLE Help 'Running without a "
+            "subprocess and refer to Help/JereIDE Help 'Running without a "
             "subprocess' for further details.",
             parent=self.tkconsole.text,
         )
