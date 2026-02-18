@@ -5,3 +5,7 @@ idlelib/__pycache__/*
 *.pyc
 */.DS_Store
 .DS_Store
+.zed
+build
+dist
+JereIDE.spec
