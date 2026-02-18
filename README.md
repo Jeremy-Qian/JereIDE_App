@@ -1,7 +1,7 @@
 # JereIDE
 
 <div style="text-align: center;">
-<img src="AppIcon.png" alt="Description" width="300" height="300">
+    <img src="AppIcon.png" alt="Description" width="300" height="300">
 </div>
 
 
