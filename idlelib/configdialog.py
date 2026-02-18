@@ -279,22 +279,6 @@ class ConfigDialog(Toplevel):
             klass.reload()
 
 
-# class TabPage(Frame):  # A template for Page classes.
-#     def __init__(self, master):
-#         super().__init__(master)
-#         self.create_page_tab()
-#         self.load_tab_cfg()
-#     def create_page_tab(self):
-#         # Define tk vars and register var and callback with tracers.
-#         # Create subframes and widgets.
-#         # Pack widgets.
-#     def load_tab_cfg(self):
-#         # Initialize widgets with data from idleConf.
-#     def var_changed_var_name():
-#         # For each tk var that needs other than default callback.
-#     def other_methods():
-#         # Define tab-specific behavior.
-
 font_sample_text = (
     "<ASCII/Latin1>\n"
     "AaBbCcDdEeFfGgHhIiJj\n1234567890#:+=(){}[]\n"

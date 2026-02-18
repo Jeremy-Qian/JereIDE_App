@@ -306,13 +306,6 @@ class PyShellEditorWindow(EditorWindow):
                 lineno += 1
         return lines
 
-    # XXX 13 Dec 2002 KBK Not used currently
-    #    def saved_change_hook(self):
-    #        "Extend base method - clear breaks if module is modified"
-    #        if not self.get_saved():
-    #            self.clear_file_breaks()
-    #        EditorWindow.saved_change_hook(self)
-
     def _close(self):
         "Extend base method - clear breaks when module is closed"
         self.clear_file_breaks()

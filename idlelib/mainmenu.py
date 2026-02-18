@@ -10,7 +10,6 @@ windows.
 """
 
 from idlelib.config import idleConf
-from importlib.util import find_spec
 
 #   Warning: menudefs is altered in macosx.overrideRootMenu()
 #   after it is determined that an OS X Aqua Tk is in use,
