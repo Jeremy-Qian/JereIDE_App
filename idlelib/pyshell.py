@@ -267,7 +267,7 @@ class PyShellEditorWindow(EditorWindow):
             if not getattr(self.root, "breakpoint_error_displayed", False):
                 self.root.breakpoint_error_displayed = True
                 messagebox.showerror(
-                    title="IDLE Error",
+                    title="JereIDE Error",
                     message="Unable to update breakpoint list:\n%s" % str(err),
                     parent=self.text,
                 )
