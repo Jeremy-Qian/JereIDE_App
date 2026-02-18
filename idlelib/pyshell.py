@@ -1160,12 +1160,7 @@ class PyShell(OutputWindow):
                 self.close()
                 return False
         else:
-            nosub = (
-                "==== No Subprocess ====\n\n"
-                + "WARNING: Running IDLE without a Subprocess is deprecated\n"
-                + "and will be removed in a later version. See Help/IDLE Help\n"
-                + "for details.\n\n"
-            )
+            nosub = "==== Welcome to JereIDE ====\n\n"
             sys.displayhook = rpc.displayhook
 
         self.write(
@@ -1551,7 +1546,7 @@ def main():
     global flist, root, use_subprocess
 
     capture_warnings(True)
-    use_subprocess = True
+    use_subprocess = False
     enable_shell = False
     enable_edit = False
     debug = False
@@ -1579,7 +1574,7 @@ def main():
             enable_shell = True
         if o == "-n":
             print(
-                " Warning: running IDLE without a subprocess is deprecated.",
+                " Warning: running JereIDE without a subprocess is deprecated.",
                 file=sys.stderr,
             )
             use_subprocess = False
