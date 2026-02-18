@@ -1,6 +1,14 @@
 # JereIDE
 
+![JereIDE Icon](AppIcon.icns)
+
 JereIDE is a powerful and user-friendly Integrated Development Environment (IDE) designed specifically for Python programming. It is a fork of Python's IDLE, built on top of idlelib with enhancements and customizations.
+
+## Installation
+
+Download the [latest release](about:blank) from my website.
+I do not have it notarized, so right-click on the downloaded file and select "Open" to run it to bypass Gatekeeper.
+Or, you can build it from the source: [Raw Installation](#Raw_Installation)
 
 ## Features
 
@@ -17,7 +25,7 @@ JereIDE is a powerful and user-friendly Integrated Development Environment (IDE)
 - **Customizable** - Configurable themes, fonts, and keybindings
 - **Cross-platform** - Works on macOS, Windows, and Linux
 
-## Installation
+## Raw Installation
 
 ### Requirements
 
@@ -61,7 +69,7 @@ JereIDE/
 
 2. Run the application:
    ```bash
-   python launch.py
+   python3 launch.py
    ```
 
 ### Running Tests
@@ -75,12 +83,6 @@ python -m unittest discover -s idlelib/idle_test
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## Credits
 
