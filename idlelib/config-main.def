@@ -11,7 +11,7 @@
 #     config-highlight.def    default highlighting config file
 #     config-keys.def         default keybinding config file
 #
-#     user configuration files in ~/.idlerc
+#     user configuration files in ~/.jereiderc
 #     -------------------------------------
 #     config-main.cfg         user general config file
 #     config-extensions.cfg   user extension config file

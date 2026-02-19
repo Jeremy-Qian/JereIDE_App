@@ -139,7 +139,7 @@ class PyShellEditorWindow(EditorWindow):
         self.text.bind("<<clear-breakpoint-here>>", self.clear_breakpoint_here)
         self.text.bind("<<open-python-shell>>", self.flist.open_shell)
 
-        # TODO: don't read/write this from/to .idlerc when testing
+        # TODO: don't read/write this from/to .jereiderc when testing
         self.breakpointPath = os.path.join(idleConf.userdir, "breakpoints.lst")
 
         # whenever a file is changed, restore breakpoints

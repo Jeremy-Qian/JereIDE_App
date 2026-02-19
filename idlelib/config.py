@@ -162,7 +162,7 @@ class IdleConf:
 
     User config files, self.userCfg --
         for config_type in self.config_types:
-        (user home dir)/.idlerc/config-{config-type}.cfg
+        (user home dir)/.jereiderc/config-{config-type}.cfg
     """
 
     def __init__(self, _utest=False):
@@ -191,7 +191,7 @@ class IdleConf:
 
         Creates it if required.
         """
-        cfgDir = ".idlerc"
+        cfgDir = ".jereiderc"
         userDir = os.path.expanduser("~")
         if userDir != "~":  # expanduser() found user home dir
             if not os.path.exists(userDir):
@@ -833,7 +833,7 @@ class ConfigChanges(dict):
 
     Names used across multiple methods:
         page -- one of the 4 top-level dicts representing a
-                .idlerc/config-x.cfg file.
+                .jereiderc/config-x.cfg file.
         config_type -- name of a page.
         section -- a section within a page/file.
         option -- name of an option within a section.

@@ -517,7 +517,7 @@ class HighPage(Frame):
         complete listings called themes.  Built-in themes in
         idlelib/config-highlight.def are fixed as far as the dialog is
         concerned. Any theme can be used as the base for a new custom
-        theme, stored in .idlerc/config-highlight.cfg.
+        theme, stored in .jereiderc/config-highlight.cfg.
 
         Function load_theme_cfg() initializes tk variables and theme
         lists and calls paint_theme_sample() and set_highlight_target()
@@ -1216,7 +1216,7 @@ class KeysPage(Frame):
         extensions, keybindings are stored in complete sets called
         keysets. Built-in keysets in idlelib/config-keys.def are fixed
         as far as the dialog is concerned. Any keyset can be used as the
-        base for a new custom keyset, stored in .idlerc/config-keys.cfg.
+        base for a new custom keyset, stored in .jereiderc/config-keys.cfg.
 
         Function load_key_cfg() initializes tk variables and keyset
         lists and calls load_keys_list for the current keyset.
@@ -2479,7 +2479,7 @@ tracers = VarTrace()
 help_common = """\
 When you click either the Apply or Ok buttons, settings in this
 dialog that are different from IDLE's default are saved in
-a .idlerc directory in your home directory. Except as noted,
+a .jereiderc directory in your home directory. Except as noted,
 these changes apply to all versions of IDLE installed on this
 machine. [Cancel] only cancels changes made since the last save.
 """
