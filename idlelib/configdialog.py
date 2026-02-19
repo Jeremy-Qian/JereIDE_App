@@ -861,7 +861,7 @@ class HighPage(Frame):
         Add the changed theme's name to the changed_items and recreate
         the sample with the values from the selected theme.
         """
-        old_themes = ("JereIDE Classic", "JereIDE New")
+        old_themes = ("JereIDE Classic", "One Light", "One Dark")
         value = self.builtin_name.get()
         if value not in old_themes:
             if idleConf.GetOption("main", "Theme", "name") not in old_themes:
