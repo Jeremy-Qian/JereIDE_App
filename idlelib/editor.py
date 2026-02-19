@@ -1145,9 +1145,7 @@ class EditorWindow:
     def get_standard_extension_names(self):
         return idleConf.GetExtensions(editor_only=True)
 
-    extfiles = {  # Map built-in config-extension section names to file names.
-        "ZzDummy": "zzdummy",
-    }
+    extfiles = {}  # Map built-in config-extension section names to file name
 
     def load_extension(self, name):
         fname = self.extfiles.get(name, name)
