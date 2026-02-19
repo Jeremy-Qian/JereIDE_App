@@ -77,8 +77,8 @@ num-spaces= 4
 
 [Theme]
 default= 1
-name= JereIDE Classic
-name2=
+name=
+name2= One Light
 # name2 set in user config-main.cfg for themes added after 2015 Oct 1
 
 [Keys]
