@@ -63,7 +63,7 @@ cursor-blink= 1
 font= TkFixedFont
 # For TkFixedFont, the actual size and boldness are obtained from tk
 # and override 10 and 0.  See idlelib.config.IdleConf.GetFont
-font-size= 10
+font-size= 12
 font-bold= 0
 encoding= none
 line-numbers-default= 0
