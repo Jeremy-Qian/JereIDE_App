@@ -1,6 +1,6 @@
 # JereIDE
 
-<div align="center">
+<div align="center" style="background-color: #000000;">
     <img src="AppIcon.png" alt="Description" width="100" height="100">
 </div>
 
