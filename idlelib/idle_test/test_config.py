@@ -387,13 +387,13 @@ class IdleConfTest(unittest.TestCase):
 
         eq = self.assertEqual
         eq(
-            conf.GetHighlight("IDLE Classic", "normal"),
+            conf.GetHighlight("One Light", "normal"),
             {"foreground": "#000000", "background": "#ffffff"},
         )
 
         # Test cursor (this background should be normal-background)
         eq(
-            conf.GetHighlight("IDLE Classic", "cursor"),
+            conf.GetHighlight("One Light", "cursor"),
             {"foreground": "black", "background": "#ffffff"},
         )
 
@@ -412,12 +412,12 @@ class IdleConfTest(unittest.TestCase):
 
         # These two should be the same
         self.assertEqual(
-            conf.GetThemeDict("default", "IDLE Classic"),
-            conf.GetThemeDict("user", "IDLE Classic"),
+            conf.GetThemeDict("default", "One Light"),
+            conf.GetThemeDict("user", "One Light"),
         )
 
         with self.assertRaises(config.InvalidTheme):
-            conf.GetThemeDict("bad", "IDLE Classic")
+            conf.GetThemeDict("bad", "One Light")
 
     def test_get_current_theme_and_keys(self):
         conf = self.mock_config()
@@ -428,17 +428,17 @@ class IdleConfTest(unittest.TestCase):
     def test_current_colors_and_keys(self):
         conf = self.mock_config()
 
-        self.assertEqual(conf.current_colors_and_keys("Theme"), "IDLE Classic")
+        self.assertEqual(conf.current_colors_and_keys("Theme"), "One Light")
 
     def test_default_keys(self):
         current_platform = sys.platform
         conf = self.new_config(_utest=True)
 
         sys.platform = "win32"
-        self.assertEqual(conf.default_keys(), "IDLE Classic Windows")
+        self.assertEqual(conf.default_keys(), "One Light Windows")
 
         sys.platform = "darwin"
-        self.assertEqual(conf.default_keys(), "IDLE Classic OSX")
+        self.assertEqual(conf.default_keys(), "One Light OSX")
 
         sys.platform = "some-linux"
         self.assertEqual(conf.default_keys(), "JereIDE Modern Unix")
@@ -520,15 +520,15 @@ class IdleConfTest(unittest.TestCase):
             ["<Control-Shift-Key-C>", "<Control-Key-Insert>"],
         )
         eq(
-            conf.GetKeyBinding("IDLE Classic Unix", "<<copy>>"),
+            conf.GetKeyBinding("One Light Unix", "<<copy>>"),
             ["<Alt-Key-w>", "<Meta-Key-w>"],
         )
         eq(
-            conf.GetKeyBinding("IDLE Classic Windows", "<<copy>>"),
+            conf.GetKeyBinding("One Light Windows", "<<copy>>"),
             ["<Control-Key-c>", "<Control-Key-C>"],
         )
-        eq(conf.GetKeyBinding("IDLE Classic Mac", "<<copy>>"), ["<Command-Key-c>"])
-        eq(conf.GetKeyBinding("IDLE Classic OSX", "<<copy>>"), ["<Command-Key-c>"])
+        eq(conf.GetKeyBinding("One Light Mac", "<<copy>>"), ["<Command-Key-c>"])
+        eq(conf.GetKeyBinding("One Light OSX", "<<copy>>"), ["<Command-Key-c>"])
 
         # Test keybinding not exists
         eq(conf.GetKeyBinding("NOT EXISTS", "<<copy>>"), [])
@@ -643,12 +643,12 @@ class IdleConfTest(unittest.TestCase):
         eq(conf.GetCoreKeys()["<<copy>>"], ["<Control-c>", "<Control-C>"])
         eq(conf.GetCoreKeys()["<<history-next>>"], ["<Alt-n>"])
         eq(
-            conf.GetCoreKeys("IDLE Classic Windows")["<<center-insert>>"],
+            conf.GetCoreKeys("One Light Windows")["<<center-insert>>"],
             ["<Control-Key-l>", "<Control-Key-L>"],
         )
-        eq(conf.GetCoreKeys("IDLE Classic OSX")["<<copy>>"], ["<Command-Key-c>"])
+        eq(conf.GetCoreKeys("One Light OSX")["<<copy>>"], ["<Command-Key-c>"])
         eq(
-            conf.GetCoreKeys("IDLE Classic Unix")["<<history-next>>"],
+            conf.GetCoreKeys("One Light Unix")["<<history-next>>"],
             ["<Alt-Key-n>", "<Meta-Key-n>"],
         )
         eq(
@@ -666,7 +666,7 @@ class CurrentColorKeysTest(unittest.TestCase):
     """
 
     colorkeys = idleConf.current_colors_and_keys
-    default_theme = "IDLE Classic"
+    default_theme = "One Light"
     default_keys = idleConf.default_keys()
 
     def test_old_builtin_theme(self):
@@ -727,9 +727,9 @@ class CurrentColorKeysTest(unittest.TestCase):
         usermain.read_string("""
             [Keys]
             default = True
-            name = IDLE Classic Unix
+            name = One Light Unix
             """)
-        self.assertEqual(self.colorkeys("Keys"), "IDLE Classic Unix")
+        self.assertEqual(self.colorkeys("Keys"), "One Light Unix")
         # Erroneous non-default old builtin reverts to default.
         usermain["Keys"]["name"] = "non-existent"
         self.assertEqual(self.colorkeys("Keys"), self.default_keys)
@@ -744,7 +744,7 @@ class CurrentColorKeysTest(unittest.TestCase):
             """)
         self.assertEqual(self.colorkeys("Keys"), "JereIDE Modern Unix")
         # Leftover 'name', not removed, is ignored.
-        usermain["Keys"]["name"] = "IDLE Classic Unix"
+        usermain["Keys"]["name"] = "One Light Unix"
         self.assertEqual(self.colorkeys("Keys"), "JereIDE Modern Unix")
         # Erroneous non-default new builtin reverts to default.
         usermain["Keys"]["name2"] = "non-existent"

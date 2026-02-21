@@ -316,11 +316,11 @@ class HighPageTest(unittest.TestCase):
         eq = self.assertEqual
 
         # Use builtin theme with no user themes created.
-        idleConf.CurrentTheme = mock.Mock(return_value="IDLE Classic")
+        idleConf.CurrentTheme = mock.Mock(return_value="One Light")
         d.load_theme_cfg()
         self.assertTrue(d.theme_source.get())
         # builtinlist sets variable builtin_name to the CurrentTheme default.
-        eq(d.builtin_name.get(), "IDLE Classic")
+        eq(d.builtin_name.get(), "One Light")
         eq(d.custom_name.get(), "- no custom themes -")
         eq(d.custom_theme_on.state(), ("disabled",))
         eq(d.set_theme_type.called, 1)
@@ -331,7 +331,7 @@ class HighPageTest(unittest.TestCase):
         idleConf.SetOption("highlight", "test1", "option", "value")
         idleConf.SetOption("highlight", "test2", "option2", "value2")
         d.load_theme_cfg()
-        eq(d.builtin_name.get(), "IDLE Classic")
+        eq(d.builtin_name.get(), "One Light")
         eq(d.custom_name.get(), "test1")
         eq(d.set_theme_type.called, 2)
         eq(d.paint_theme_sample.called, 2)
@@ -342,7 +342,7 @@ class HighPageTest(unittest.TestCase):
         idleConf.SetOption("main", "Theme", "default", "0")
         d.load_theme_cfg()
         self.assertFalse(d.theme_source.get())
-        eq(d.builtin_name.get(), "IDLE Classic")
+        eq(d.builtin_name.get(), "One Light")
         eq(d.custom_name.get(), "test2")
         eq(d.set_theme_type.called, 3)
         eq(d.paint_theme_sample.called, 3)
@@ -375,12 +375,12 @@ class HighPageTest(unittest.TestCase):
     def test_builtin_name(self):
         eq = self.assertEqual
         d = self.page
-        item_list = ["IDLE Classic", "IDLE Dark", "IDLE New"]
+        item_list = ["One Light", "IDLE Dark", "IDLE New"]
 
         # Not in old_themes, defaults name to first item.
         idleConf.SetOption("main", "Theme", "name", "spam")
         d.builtinlist.SetMenu(item_list, "IDLE Dark")
-        eq(mainpage, {"Theme": {"name": "IDLE Classic", "name2": "IDLE Dark"}})
+        eq(mainpage, {"Theme": {"name": "One Light", "name2": "IDLE Dark"}})
         eq(d.theme_message["text"], "New theme, see Help")
         eq(d.paint_theme_sample.called, 1)
 
@@ -394,8 +394,8 @@ class HighPageTest(unittest.TestCase):
 
         # Builtin name in old_themes.
         changes.clear()
-        d.builtinlist.SetMenu(item_list, "IDLE Classic")
-        eq(mainpage, {"Theme": {"name": "IDLE Classic", "name2": ""}})
+        d.builtinlist.SetMenu(item_list, "One Light")
+        eq(mainpage, {"Theme": {"name": "One Light", "name2": ""}})
         eq(d.theme_message["text"], "")
         eq(d.paint_theme_sample.called, 3)
 
@@ -626,7 +626,7 @@ class HighPageTest(unittest.TestCase):
 
         # Use default as previously active theme.
         d.theme_source.set(True)
-        d.builtin_name.set("IDLE Classic")
+        d.builtin_name.set("One Light")
         first_new = "my new custom theme"
         second_new = "my second custom theme"
 
@@ -635,7 +635,7 @@ class HighPageTest(unittest.TestCase):
         d.create_new(first_new)
         eq(idleConf.GetSectionList("user", "highlight"), [first_new])
         eq(
-            idleConf.GetThemeDict("default", "IDLE Classic"),
+            idleConf.GetThemeDict("default", "One Light"),
             idleConf.GetThemeDict("user", first_new),
         )
         eq(d.custom_name.get(), first_new)
@@ -830,26 +830,26 @@ class KeysPageTest(unittest.TestCase):
         eq = self.assertEqual
 
         # Use builtin keyset with no user keysets created.
-        idleConf.CurrentKeys = mock.Mock(return_value="IDLE Classic OSX")
+        idleConf.CurrentKeys = mock.Mock(return_value="One Light OSX")
         d.load_key_cfg()
         self.assertTrue(d.keyset_source.get())
         # builtinlist sets variable builtin_name to the CurrentKeys default.
-        eq(d.builtin_name.get(), "IDLE Classic OSX")
+        eq(d.builtin_name.get(), "One Light OSX")
         eq(d.custom_name.get(), "- no custom keys -")
         eq(d.custom_keyset_on.state(), ("disabled",))
         eq(d.set_keys_type.called, 1)
         eq(d.load_keys_list.called, 1)
-        eq(d.load_keys_list.args, ("IDLE Classic OSX",))
+        eq(d.load_keys_list.args, ("One Light OSX",))
 
         # Builtin keyset with non-empty user keyset list.
         idleConf.SetOption("keys", "test1", "option", "value")
         idleConf.SetOption("keys", "test2", "option2", "value2")
         d.load_key_cfg()
-        eq(d.builtin_name.get(), "IDLE Classic OSX")
+        eq(d.builtin_name.get(), "One Light OSX")
         eq(d.custom_name.get(), "test1")
         eq(d.set_keys_type.called, 2)
         eq(d.load_keys_list.called, 2)
-        eq(d.load_keys_list.args, ("IDLE Classic OSX",))
+        eq(d.load_keys_list.args, ("One Light OSX",))
 
         # Use custom keyset.
         idleConf.CurrentKeys = mock.Mock(return_value="test2")
@@ -891,13 +891,13 @@ class KeysPageTest(unittest.TestCase):
         eq = self.assertEqual
         d = self.page
         idleConf.userCfg["main"].remove_section("Keys")
-        item_list = ["IDLE Classic Windows", "IDLE Classic OSX", "IDLE Modern UNIX"]
+        item_list = ["One Light Windows", "One Light OSX", "IDLE Modern UNIX"]
 
         # Not in old_keys, defaults name to first item.
         d.builtinlist.SetMenu(item_list, "IDLE Modern UNIX")
         eq(
             mainpage,
-            {"Keys": {"name": "IDLE Classic Windows", "name2": "IDLE Modern UNIX"}},
+            {"Keys": {"name": "One Light Windows", "name2": "IDLE Modern UNIX"}},
         )
         eq(d.keys_message["text"], "New key set, see Help")
         eq(d.load_keys_list.called, 1)
@@ -905,7 +905,7 @@ class KeysPageTest(unittest.TestCase):
 
         # Not in old keys - uses name2.
         changes.clear()
-        idleConf.SetOption("main", "Keys", "name", "IDLE Classic Unix")
+        idleConf.SetOption("main", "Keys", "name", "One Light Unix")
         d.builtinlist.SetMenu(item_list, "IDLE Modern UNIX")
         eq(mainpage, {"Keys": {"name2": "IDLE Modern UNIX"}})
         eq(d.keys_message["text"], "New key set, see Help")
@@ -914,11 +914,11 @@ class KeysPageTest(unittest.TestCase):
 
         # Builtin name in old_keys.
         changes.clear()
-        d.builtinlist.SetMenu(item_list, "IDLE Classic OSX")
-        eq(mainpage, {"Keys": {"name": "IDLE Classic OSX", "name2": ""}})
+        d.builtinlist.SetMenu(item_list, "One Light OSX")
+        eq(mainpage, {"Keys": {"name": "One Light OSX", "name2": ""}})
         eq(d.keys_message["text"], "")
         eq(d.load_keys_list.called, 3)
-        eq(d.load_keys_list.args, ("IDLE Classic OSX",))
+        eq(d.load_keys_list.args, ("One Light OSX",))
 
     def test_custom_name(self):
         d = self.page
@@ -1077,7 +1077,7 @@ class KeysPageTest(unittest.TestCase):
 
         # Use default as previously active keyset.
         d.keyset_source.set(True)
-        d.builtin_name.set("IDLE Classic Windows")
+        d.builtin_name.set("One Light Windows")
         first_new = "my new custom key set"
         second_new = "my second custom keyset"
 
@@ -1085,7 +1085,7 @@ class KeysPageTest(unittest.TestCase):
         self.assertNotIn(first_new, idleConf.userCfg)
         d.create_new_key_set(first_new)
         eq(idleConf.GetSectionList("user", "keys"), [first_new])
-        eq(idleConf.GetKeySet("IDLE Classic Windows"), idleConf.GetKeySet(first_new))
+        eq(idleConf.GetKeySet("One Light Windows"), idleConf.GetKeySet(first_new))
         eq(d.custom_name.get(), first_new)
         self.assertFalse(d.keyset_source.get())  # Use custom set.
         eq(d.set_keys_type.called, 1)
