@@ -441,7 +441,7 @@ class IdleConfTest(unittest.TestCase):
         self.assertEqual(conf.default_keys(), "IDLE Classic OSX")
 
         sys.platform = "some-linux"
-        self.assertEqual(conf.default_keys(), "IDLE Modern Unix")
+        self.assertEqual(conf.default_keys(), "JereIDE Modern Unix")
 
         # Restore platform
         sys.platform = current_platform
@@ -516,7 +516,7 @@ class IdleConfTest(unittest.TestCase):
 
         eq = self.assertEqual
         eq(
-            conf.GetKeyBinding("IDLE Modern Unix", "<<copy>>"),
+            conf.GetKeyBinding("JereIDE Modern Unix", "<<copy>>"),
             ["<Control-Shift-Key-C>", "<Control-Key-Insert>"],
         )
         eq(
@@ -532,7 +532,7 @@ class IdleConfTest(unittest.TestCase):
 
         # Test keybinding not exists
         eq(conf.GetKeyBinding("NOT EXISTS", "<<copy>>"), [])
-        eq(conf.GetKeyBinding("IDLE Modern Unix", "NOT EXISTS"), [])
+        eq(conf.GetKeyBinding("JereIDE Modern Unix", "NOT EXISTS"), [])
 
     def test_get_current_keyset(self):
         current_platform = sys.platform
@@ -559,7 +559,7 @@ class IdleConfTest(unittest.TestCase):
         conf.defaultCfg["extensions"].add_section("Foobar_cfgBindings")
         conf.defaultCfg["extensions"].set("Foobar", "enable", "True")
         conf.defaultCfg["extensions"].set("Foobar_cfgBindings", "newfoo", "<Key-F3>")
-        self.assertEqual(conf.GetKeySet("IDLE Modern Unix")["<<newfoo>>"], "")
+        self.assertEqual(conf.GetKeySet("JereIDE Modern Unix")["<<newfoo>>"], "")
 
     def test_is_core_binding(self):
         # XXX: Should move out the core keys to config file or other place
@@ -652,7 +652,7 @@ class IdleConfTest(unittest.TestCase):
             ["<Alt-Key-n>", "<Meta-Key-n>"],
         )
         eq(
-            conf.GetCoreKeys("IDLE Modern Unix")["<<history-next>>"],
+            conf.GetCoreKeys("JereIDE Modern Unix")["<<history-next>>"],
             ["<Alt-Key-n>", "<Meta-Key-n>"],
         )
 
@@ -740,12 +740,12 @@ class CurrentColorKeysTest(unittest.TestCase):
         usermain.read_string("""
             [Keys]
             default = True
-            name2 = IDLE Modern Unix
+            name2 = JereIDE Modern Unix
             """)
-        self.assertEqual(self.colorkeys("Keys"), "IDLE Modern Unix")
+        self.assertEqual(self.colorkeys("Keys"), "JereIDE Modern Unix")
         # Leftover 'name', not removed, is ignored.
         usermain["Keys"]["name"] = "IDLE Classic Unix"
-        self.assertEqual(self.colorkeys("Keys"), "IDLE Modern Unix")
+        self.assertEqual(self.colorkeys("Keys"), "JereIDE Modern Unix")
         # Erroneous non-default new builtin reverts to default.
         usermain["Keys"]["name2"] = "non-existent"
         self.assertEqual(self.colorkeys("Keys"), self.default_keys)

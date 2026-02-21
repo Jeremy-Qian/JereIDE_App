@@ -442,7 +442,7 @@ class IdleConf:
         elif sys.platform == "darwin":
             return "JereIDE Classic OSX"
         else:
-            return "IDLE Modern Unix"
+            return "JereIDE Modern Unix"
 
     def GetExtensions(self, active_only=True, editor_only=False, shell_only=False):
         """Return extensions in default and user config-extensions files.

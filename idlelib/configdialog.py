@@ -2509,7 +2509,7 @@ theme, with a different name.
 """,
     "Keys": """
 Keys:
-The IDLE Modern Unix key set is new in June 2016.  It can only
+The JereIDE Modern Unix key set is new in June 2016.  It can only
 be used with older IDLE releases if it is saved as a custom
 key set, with a different name.
 """,
