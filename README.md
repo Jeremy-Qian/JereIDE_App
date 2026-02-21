@@ -1,8 +1,4 @@
-# JereIDE
-
-<div align="center">
-    <img src="AppIcon.png" alt="Description" width="100" height="100" border="1">
-</div>
+# JereIDE <div align="right"><img src="AppIcon.png" alt="Description" width="100" height="100"></div>
 
 
 JereIDE is a powerful and user-friendly Integrated Development Environment (IDE) designed specifically for Python programming. It is a fork of Python's IDLE, built on top of idlelib with enhancements and customizations.
