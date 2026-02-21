@@ -11,7 +11,7 @@ JereIDE is a powerful and user-friendly Integrated Development Environment (IDE)
 
 Download the [latest release](about:blank) from my website.
 I do not have it notarized, so right-click on the downloaded file and select "Open" to run it to bypass Gatekeeper.
-Or, you can build it from the source: [Raw Installation](#Raw_Installation)
+Or, you can build it from the source: [Raw Installation](#raw-installation)
 
 ## Features
 
