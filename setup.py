@@ -24,7 +24,40 @@ setup(
     options={
         "build_exe": {
             "packages": [],  # Add required packages here
-            "excludes": [],  # Exclude unnecessary packages
+            "excludes": [
+                # Testing (never needed in production)
+                "unittest",
+                "doctest",
+                "test",
+                "tests",
+                "idlelib.idle_test",
+                "tkinter.test",
+                # Package management (never needed at runtime)
+                "ensurepip",
+                "pip",
+                "setuptools",
+                "distutils",
+                "venv",
+                # Email
+                "email",
+                "mailbox",
+                "imaplib",
+                "poplib",
+                "smtplib",
+                "nntplib",
+                # Misc [From Here Testing]
+                "logging",
+                "pprint",
+                "zoneinfo",
+                # Turtle graphics demo
+                "turtle",
+                "turtledemo",
+                "tkinter.turtledemo",
+                # macOS/Windows specific that aren't needed
+                "winreg",
+                "msilib",
+                "msvcrt",
+            ],  # Exclude unnecessary packages
             "include_files": [],  # Add non-Python files (e.g., assets)
         },
         "bdist_mac": {
