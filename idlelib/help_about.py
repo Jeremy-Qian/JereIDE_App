@@ -98,7 +98,7 @@ class AboutDialog(Toplevel):
         tk_patchlevel = self.info_patchlevel()
         ext = ".png" if tk_patchlevel >= (8, 6) else ".gif"
         icon = os.path.join(
-            os.path.abspath(os.path.dirname(__file__)), "Icons", f"idle_48{ext}"
+            os.path.abspath(os.path.dirname(__file__)), "Icons", f"jereide_48{ext}"
         )
         self.icon_image = PhotoImage(master=self._root(), file=icon)
         logo = Label(frame_background, image=self.icon_image, bg=self.bg)
