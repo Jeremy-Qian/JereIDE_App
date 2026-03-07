@@ -68,9 +68,17 @@ class EditorWindow:
     allow_line_numbers = True
     user_input_insert_tags = None
 
-    def __init__(self, flist=None, filename=None, key=None, root=None):
-        # Delay import: runscript imports pyshell imports EditorWindow.
-        from idlelib.runscript import ScriptBinding
+    def remove_trailing_whitespace(self, event=None):
+        """Remove trailing whitespace from the entire document."""
+        if not self.remove_trailing_whitespace_on_save:
+            return
+
+        content = self.text.get("1.0", "end-1c")
+        modified_content = re.sub(r"[ \t]+$", "", content, flags=re.MULTILINE)
+
+        if content != modified_content:
+            self.text.delete("1.0", "end")
+            self.text.insert("1.0", modified_content)
 
         if EditorWindow.help_url is None:
             dochome = os.path.join(sys.base_prefix, "Doc", "index.html")
@@ -164,6 +172,9 @@ class EditorWindow:
         else:
             # Elsewhere, use right-click for popup menus.
             text.bind("<3>", self.right_menu_event)
+
+        # Bind save event to remove trailing whitespace
+        text.bind("<<save>>", self.remove_trailing_whitespace)
 
         text.bind("<MouseWheel>", wheel_event)
         text.bind("<Button-4>", wheel_event)
