@@ -362,13 +362,7 @@ class EditorWindow:
             self.update_menu_state("options", "*ode*ontext", "disabled")
         if self.allow_line_numbers:
             self.line_numbers = self.LineNumbers(self)
-            if idleConf.GetOption(
-                "main", "EditorWindow", "line-numbers-default", type="bool"
-            ):
-                self.toggle_line_numbers_event()
-            text.bind("<<toggle-line-numbers>>", self.toggle_line_numbers_event)
-        else:
-            self.update_menu_state("options", "*ine*umbers", "disabled")
+            self.line_numbers.show_sidebar()
 
     def handle_winconfig(self, event=None):
         self.set_width()
