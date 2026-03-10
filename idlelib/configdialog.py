@@ -378,6 +378,11 @@ class FontPage(Frame):
         scroll_font = Scrollbar(frame_font_name)
         scroll_font.config(command=self.fontlist.yview)
         self.fontlist.config(yscrollcommand=scroll_font.set)
+        help_fontlist = Label(
+            frame_font_name,
+            text="Changes the font for the JereIDE editor.",
+            foreground="gray",
+        )
         font_size_title = Label(frame_font_param, text="Size :")
         self.sizelist = DynOptionMenu(frame_font_param, self.font_size, None)
         self.bold_toggle = Checkbutton(
@@ -386,6 +391,12 @@ class FontPage(Frame):
             onvalue=1,
             offvalue=0,
             text="Bold",
+        )
+        help_fontsize = Label(
+            frame_font,
+            text="Changes the font size for the JereIDE editor.",
+            justify=LEFT,
+            foreground="gray",
         )
         # frame_sample.
         font_sample_frame = ScrollableTextFrame(frame_sample)
@@ -402,11 +413,20 @@ class FontPage(Frame):
         frame_font_name.pack(side=TOP, padx=5, pady=5, fill=X)
         frame_font_param.pack(side=TOP, padx=5, pady=5, fill=X)
         font_name_title.pack(side=TOP, anchor=W)
+        help_fontlist.pack(
+            side=TOP,
+            anchor="sw",
+            fill=X,
+        )
         self.fontlist.pack(side=LEFT, expand=TRUE, fill=X)
         scroll_font.pack(side=LEFT, fill=Y)
         font_size_title.pack(side=LEFT, anchor=W)
         self.sizelist.pack(side=LEFT, anchor=W)
         self.bold_toggle.pack(side=LEFT, anchor=W, padx=20)
+        help_fontsize.pack(
+            side=BOTTOM,
+            anchor="sw",
+        )
         # frame_sample.
         font_sample_frame.pack(expand=TRUE, fill=BOTH)
 
